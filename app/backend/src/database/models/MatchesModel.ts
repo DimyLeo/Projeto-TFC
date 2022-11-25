@@ -42,6 +42,7 @@ MatchesModel.init({
   sequelize: db,
   modelName: 'matches',
   timestamps: false,
+  underscored: true,
 });
 
 MatchesModel.belongsTo(Teams, { foreignKey: 'homeTeam', as: 'teamHome' });

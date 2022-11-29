@@ -1,7 +1,7 @@
 import { Request, Response } from 'express';
 import LoginService from '../services/LoginService';
 
-class LoginController {
+export default class LoginController {
   constructor(private loginService = new LoginService()) {}
 
   public login = async (req: Request, res: Response): Promise<Response> => {
@@ -13,5 +13,3 @@ class LoginController {
     return res.status(200).json({ token: response });
   };
 }
-
-export default LoginController;

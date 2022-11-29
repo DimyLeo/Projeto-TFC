@@ -5,7 +5,7 @@ import IToken from '../interfaces/IToken';
 import IUser from '../interfaces/IUser';
 
 const JWT_SECRET = 'secret';
-class LoginService {
+export default class LoginService {
   public model = UserModel;
 
   public login = async (email: string, password: string): Promise<IToken | string> => {
@@ -22,5 +22,3 @@ class LoginService {
     return token;
   };
 }
-
-export default LoginService;

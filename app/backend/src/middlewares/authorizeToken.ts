@@ -8,8 +8,8 @@ const tokenValidation:RequestHandler = (req, res, next) => {
     const response = validation.validToken(token);
     res.locals.email = response.email;
     next();
-  } catch ({ message }) {
-    return res.status(401).json({ message });
+  } catch (err) {
+    return res.status(401).json({ message: 'Token must be a valid token' });
   }
 };
 

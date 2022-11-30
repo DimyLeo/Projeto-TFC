@@ -1,32 +1,29 @@
-import { RequestHandler } from 'express';
+import { Request, Response } from 'express';
 import MatchesService from '../services/MatchesService';
 
 export default class MatchesController {
-  constructor(private service = new MatchesService()) { }
-
-  public getAll:RequestHandler = async (_req, res) => {
-    const response = await this.service.getAll();
-    return res.status(200).json(response);
-  };
-
-  // public async getAll(_req: Request, res: Response): Promise<void> {
-  //   console.log(this.service.getAll); // service é undefined, como resolver
+  // public getAll:RequestHandler = async (_req, res) => {
   //   const response = await this.service.getAll();
-  //   res.status(200).json(response);
-  // }
+  //   return res.status(200).json(response);
+  // };
 
-  // private async getInProgress(req: Request, res: Response): Promise<void> {
-  //   const progressType = req.query.inProgress === 'true';
-  //   const response = await this.service.getInProgressService(progressType);
-  //   res.status(200).json(response);
-  // }
+  public static async getAll(_req: Request, res: Response): Promise<void> {
+    const response = await MatchesService.getAll();
+    res.status(200).json(response);
+  }
 
-  // public async toggleMatches(req: Request, res: Response): Promise<void> {
-  //   const { inProgress } = req.query;
-  //   if (inProgress === undefined) {
-  //     this.getAll(req, res);
-  //   } else {
-  //     this.getInProgress(req, res);
-  //   }
-  // }
+  private static async getInProgress(req: Request, res: Response): Promise<void> {
+    const progressType = req.query.inProgress === 'true';
+    const response = await MatchesService.getInProgressService(progressType);
+    res.status(200).json(response);
+  }
+
+  public static async toggleMatches(req: Request, res: Response): Promise<void> {
+    const { inProgress } = req.query;
+    if (inProgress === undefined) {
+      MatchesController.getAll(req, res);
+    } else {
+      MatchesController.getInProgress(req, res);
+    }
+  }
 }

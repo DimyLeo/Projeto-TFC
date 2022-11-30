@@ -2,8 +2,7 @@ import { Router } from 'express';
 import MatchesController from '../controllers/MatchesController';
 
 const matcheRoute = Router();
-const matchesController = new MatchesController();
 
-matcheRoute.get('/', matchesController.getAll);
+matcheRoute.get('/', MatchesController.getAll);
 
 export default matcheRoute;

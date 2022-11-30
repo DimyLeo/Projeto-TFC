@@ -2,10 +2,10 @@ import MatchesModel from '../database/models/MatchesModel';
 import IMatches from '../interfaces/IMatches';
 
 export default class MatchesService {
-  constructor(private model = MatchesModel) {}
+  // constructor(private model = new MatchesModel()) {}
 
-  public async getAll(): Promise<IMatches[]> {
-    const response = await this.model.findAll({
+  public static async getAll(): Promise<IMatches[]> {
+    const response = await MatchesModel.findAll({
       include: {
         all: true,
         attributes: { exclude: ['id'] } },
@@ -13,8 +13,8 @@ export default class MatchesService {
     return response;
   }
 
-  public async getInProgressService(inProgress: boolean): Promise<MatchesModel[]> {
-    const response = await this.model.findAll({
+  public static async getInProgressService(inProgress: boolean): Promise<MatchesModel[]> {
+    const response = await MatchesModel.findAll({
       where: { inProgress },
       include: {
         all: true,

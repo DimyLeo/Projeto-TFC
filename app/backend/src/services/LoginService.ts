@@ -4,7 +4,7 @@ import UserModel from '../database/models/UserModel';
 import IToken from '../interfaces/IToken';
 import IUser from '../interfaces/IUser';
 
-const JWT_SECRET = 'secret';
+const JWT_SECRET = process.env.JWT_SECRET || 'secret';
 export default class LoginService {
   public model = UserModel;
 

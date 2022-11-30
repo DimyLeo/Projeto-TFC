@@ -3,6 +3,6 @@ import MatchesController from '../controllers/MatchesController';
 
 const matcheRoute = Router();
 
-matcheRoute.get('/', MatchesController.getAll);
+matcheRoute.get('/', MatchesController.toggleMatches);
 
 export default matcheRoute;

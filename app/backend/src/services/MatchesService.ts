@@ -40,4 +40,8 @@ export default class MatchesService {
     });
     return response;
   }
+
+  public static async finishMatchService(id: number): Promise<void> {
+    await MatchesModel.update({ inProgress: false }, { where: { id } });
+  }
 }

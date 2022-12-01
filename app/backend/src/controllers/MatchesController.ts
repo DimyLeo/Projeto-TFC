@@ -26,4 +26,24 @@ export default class MatchesController {
       MatchesController.getInProgress(req, res);
     }
   }
+
+  private static async saveMatch(req: Request, res: Response): Promise<void> {
+    const { homeTeam, awayTeam, homeTeamGoals, awayTeamGoals } = req.body;
+    const { id, inProgress } = await MatchesService.saveMatchService(req.body);
+    res.status(201).json({ homeTeam, awayTeam, homeTeamGoals, awayTeamGoals, id, inProgress });
+  }
+
+  public static async toggleSaveMatch(req: Request, res: Response): Promise<void | Response> {
+    const { homeTeam, awayTeam } = req.body;
+    if (homeTeam === awayTeam) {
+      return res.status(422).json({
+        message: 'It is not possible to create a match with two equal teams' });
+    }
+    const invalidHome = await MatchesService.validId(homeTeam);
+    const invalidAway = await MatchesService.validId(awayTeam);
+    if (invalidHome || invalidAway) {
+      return res.status(404).json({ message: 'There is no team with such id!' });
+    }
+    MatchesController.saveMatch(req, res);
+  }
 }

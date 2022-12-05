@@ -11,4 +11,9 @@ export default class LeaderboardController {
     const response = await LeaderboardService.getMatches('teamAway');
     res.status(200).json(response);
   }
+
+  public static async getGeneralLeaders(req: Request, res: Response) {
+    const response = await LeaderboardService.getGeneralMatches();
+    res.status(200).json(response);
+  }
 }

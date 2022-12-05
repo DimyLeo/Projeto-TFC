@@ -43,6 +43,35 @@ export default class LeaderboardService {
     return orderedMatches;
   }
 
+  private static concatenation(h: ILeaderboard, a: ILeaderboard): ILeaderboard {
+    const totalPoints = h.totalPoints + a.totalPoints;
+    const totalGames = h.totalGames + a.totalGames;
+    const efficiency = (((totalPoints / 3) / totalGames) * 100).toFixed(2);
+    return {
+      name: h.name,
+      totalPoints,
+      totalGames,
+      totalVictories: h.totalVictories + a.totalVictories,
+      totalDraws: h.totalDraws + a.totalDraws,
+      totalLosses: h.totalLosses + a.totalLosses,
+      goalsFavor: h.goalsFavor + a.goalsFavor,
+      goalsOwn: h.goalsOwn + a.goalsOwn,
+      goalsBalance: h.goalsBalance + a.goalsBalance,
+      efficiency,
+    };
+  }
+
+  public static async getGeneralMatches(): Promise<ILeaderboard[]> {
+    const home = await LeaderboardService.getMatches('teamHome');
+    const away = await LeaderboardService.getMatches('teamAway');
+    const general = home.map((homeMatch) => {
+      const otherMatch = away.filter((awayMatch) => awayMatch.name === homeMatch.name)[0];
+      return LeaderboardService.concatenation(homeMatch, otherMatch);
+    });
+    const sort = LeaderboardService.sort(general);
+    return sort;
+  }
+
   // public static async getHomeMatches(): Promise<ILeaderboard[]> {
   //   const response = await LeaderboardService.getAllMatches();
   //   const homeMatches = response.map((index) =>

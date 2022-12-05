@@ -36,4 +36,12 @@ export default class LeaderboardService {
     const order = LeaderboardService.sort(homeMatches);
     return order;
   }
+
+  public static async getAwayMatches(): Promise<ILeaderboard[]> {
+    const response = await LeaderboardService.getAllMatches();
+    const awayMatches = response.map((index) =>
+      new LeaderboardValidate(index, index[0].dataValues.teamAway.teamName).leaderboard);
+    const order = LeaderboardService.sort(awayMatches);
+    return order;
+  }
 }

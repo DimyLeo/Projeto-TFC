@@ -37,7 +37,7 @@ export default class LeaderboardService {
   public static async getMatches(sortType: SortType): Promise<ILeaderboard[]> {
     const allMatches = await LeaderboardService.getAllMatches(sortType);
     const matches = allMatches.map((index) => (
-      new LeaderboardValidate(index, index[0].dataValues[sortType].teamName).leaderboard
+      new LeaderboardValidate(index, sortType).leaderboard
     ));
     const orderedMatches = LeaderboardService.sort(matches);
     return orderedMatches;

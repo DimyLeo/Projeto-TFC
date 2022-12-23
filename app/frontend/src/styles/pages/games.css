@@ -14,7 +14,6 @@
   color: #3d495c;
   display: flex;
   flex-direction: column;
-  font-family: Verdana , Tahoma , sans-serif;
   font-size: 16px;
   font-style: normal;
   font-weight: 700;
@@ -27,7 +26,6 @@
   border-bottom: 1px solid #3d495c;
   color: #c5c9ce;
   cursor: pointer;
-  font-family: Verdana , Tahoma , sans-serif;
   font-size: 14px;
   font-style: normal;
   height: 40px;
@@ -49,7 +47,6 @@
   color: white;
   cursor: pointer;
   flex-grow: 0;
-  font-family: Verdana , Tahoma , sans-serif;
   font-size: 16px;
   font-style: normal;
   height: 40px;
@@ -68,7 +65,6 @@
 
 .add-new-game-button {
   color: #29313d;
-  font-family: Verdana , Tahoma , sans-serif;
   font-size: 16px;
   font-style: normal;
   font-weight: 700;
@@ -138,7 +134,6 @@
   border: 1px solid #036b52;
   border-radius: 8px;
   color: #036b52;
-  font-family: Verdana , Tahoma , sans-serif;
   font-size: 14px;
   font-style: normal;
   height: 45px;
@@ -152,7 +147,6 @@
 
 .games-table-tbody-versus {
   color: #3d495c;
-  font-family: Verdana , Tahoma , sans-serif;
   font-size: 16px;
   font-style: normal;
   font-weight: 700;
@@ -182,7 +176,6 @@
   border: 1px solid #e1e5eb;
   border-radius: 8px;
   color: white;
-  font-family: Verdana , Tahoma , sans-serif;
   font-size: 15px;
   font-style: normal;
   font-weight: 700;

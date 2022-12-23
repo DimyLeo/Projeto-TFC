@@ -22,14 +22,8 @@
 }
 
 .common-header h1 {
-  align-items: center;
   color: white;
-  display: flex;
-  flex-grow: 2;
-  font-family: Verdana , Tahoma , sans-serif;
   font-size: 30px;
-  font-style: normal;
-  justify-content: center;
   line-height: 36px;
   text-align: center;
 }
@@ -40,7 +34,6 @@
   border-radius: 8px;
   color: white;
   display: flex;
-  font-family: Verdana , Tahoma , sans-serif;
   font-size: 16px;
   font-style: normal;
   font-weight: 700;
@@ -76,7 +69,6 @@
   color: white;
   cursor: pointer;
   display: flex;
-  font-family: Verdana , Tahoma , sans-serif;
   font-size: 16px;
   font-style: normal;
   line-height: 19px;

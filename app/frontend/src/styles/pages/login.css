@@ -31,7 +31,6 @@
   align-items: center;
   display: flex;
   flex-grow: 2;
-  font-family: Verdana , Tahoma , sans-serif;
   font-size: 16px;
   font-style: normal;
   font-weight: 700;
@@ -51,7 +50,6 @@
 
 .user-login-area form input::placeholder {
   color: #6b7588;
-  font-family: Verdana , Tahoma , sans-serif;
   font-size: 14px;
   line-height: 150%;
   text-align: center;
@@ -63,7 +61,6 @@
   border-radius: 8px;
   color: white;
   cursor: pointer;
-  font-family: Verdana , Tahoma , sans-serif;
   font-size: 16px;
   font-style: normal;
   height: 40px;
@@ -79,7 +76,6 @@
 
 .user-login-area form p {
   color: #b01726;
-  font-family: Verdana , Tahoma , sans-serif;
   font-size: 14px;
   font-style: normal;
   text-align: center;

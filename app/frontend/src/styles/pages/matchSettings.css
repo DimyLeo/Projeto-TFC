@@ -33,7 +33,6 @@
 
 .match-settings-form-options label p {
   color: #29313d;
-  font-family: Verdana , Tahoma , sans-serif;
   font-size: 16px;
   font-style: normal;
   font-weight: 700;
@@ -66,7 +65,6 @@
   border: 1px solid #003be5;
   border-radius: 8px;
   cursor: pointer;
-  font-family: Verdana , Tahoma , sans-serif;
   font-size: 16px;
   font-style: normal;
   height: 40px;
